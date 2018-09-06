@@ -72,6 +72,16 @@
 	display: list-item;
 }
 
+.amenities h4 {
+    overflow: auto;
+    height: 16px;
+    width: 250px;
+}
+
+.amenities-list {
+    margin-right: 10px;
+}
+
 .container .filters .popover {
 	max-height: 300px;
 	overflow: scroll;
