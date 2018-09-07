@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  let a_list = [];
   let amenities = {};
   $('.amenities-list').change(function (event) {
     let amenityId = $(this).attr('data-id');
@@ -6,9 +7,12 @@ $(document).ready(function () {
 
     if (event['target']['checked']) {
       amenities[amenityId] = amenityName;
+	  a_list.push(amenityName);
     } else {
       delete amenities[amenityId];
+	  a_list.splice(a_list.indexOf(amenityName), 1);
     }
-    $('.amenities h4').text(Object.values(amenities));
+	$('.amenities h4').text(a_list);
+    //$('.amenities h4').text(Object.values(amenities));
   });
 });
