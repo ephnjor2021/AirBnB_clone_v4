@@ -73,7 +73,9 @@
 }
 
 .amenities h4 {
-    overflow: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     height: 16px;
     width: 250px;
 }
