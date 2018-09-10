@@ -28,18 +28,24 @@ $(document).ready(function () {
       delete locations[locationId];
 	  locationList.splice(locationList.indexOf(locationName), 1);
     }
-    console.log(locationList);
-    console.log(locations);
     $('.locations h4').text(locationList);
   });
 
 
-  let aData = {'amenities': []};
-  $('.amenities-list').on('change', function (event) {
-    let amenityId = event.target.dataset.id;
+  let aData = {'amenities': [], 'cities': [], 'states': []};
+  $('.amenities-list, .states-list, .cities-list').on('change', function (event) {
+    let id = event.target.dataset.id;
     let ischecked = $(this).is(':checked');
-    if (ischecked) aData['amenities'].push(amenityId);
-    else aData['amenities'].splice(aData['amenities'].indexOf(amenityId), 1);
+
+	let keyType = event.target.classList[0];
+	if ((ischecked) && keyType === 'cities-list') aData['cities'].push(id);
+	else aData['cities'].splice(aData['cities'].indexOf(id), 1);
+
+	if ((ischecked) && keyType === 'states-list') aData['states'].push(id);
+	else aData['states'].splice(aData['states'].indexOf(id), 1);
+
+    if ((ischecked) && keyType == 'amenities-list') aData['amenities'].push(id);
+    else aData['amenities'].splice(aData['amenities'].indexOf(id), 1);
 
 	$('.places').empty();
     $.ajax({
@@ -49,7 +55,7 @@ $(document).ready(function () {
       contentType: 'application/json',
       data: JSON.stringify(aData),
       success: function (data) {
-        for (let i = 0; i < data.length; ++i) {
+	    for (let i = 0; i < data.length; ++i) {
           let html = '<article><div class="title"><h2>' + data[i].name + '</h2><div class="price_by_night">' + data[i].price_by_night + '</div></div><div class="information"><div class="max_guest"><i class="fa fa-users fa-3x" aria-hidden="true"></i><br />' + data[i].max_guest + ' Guests</div><div class="number_rooms"><i class="fa fa-bed fa-3x" aria-hidden="true"></i><br />' + data[i].number_rooms + ' Bedrooms</div><div class="number_bathrooms"><i class="fa fa-bath fa-3x" aria-hidden="true"></i><br />' + data[i].number_bathrooms + ' Bathroom</div></div><div class="user"></div><div class="description">' + data[i].description + '</div></article>';
           $('.places').append(html);
         }
