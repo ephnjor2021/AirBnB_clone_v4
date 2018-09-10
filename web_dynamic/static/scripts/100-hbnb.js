@@ -36,21 +36,20 @@ $(document).ready(function () {
   $('.amenities-list, .states-list, .cities-list').on('change', function (event) {
     let id = event.target.dataset.id;
     let ischecked = $(this).is(':checked');
-
 	let keyType = event.target.classList[0];
 	if ((ischecked) && keyType === 'cities-list') aData['cities'].push(id);
-	else aData['cities'].splice(aData['cities'].indexOf(id), 1);
+	else if ((!ischecked) && keyType === 'cities-list') aData['cities'].splice(aData['cities'].indexOf(id), 1);
 
 	if ((ischecked) && keyType === 'states-list') aData['states'].push(id);
-	else aData['states'].splice(aData['states'].indexOf(id), 1);
+	else if ((!ischecked) && keyType === 'states-list') aData['states'].splice(aData['states'].indexOf(id), 1);
 
-    if ((ischecked) && keyType == 'amenities-list') aData['amenities'].push(id);
-    else aData['amenities'].splice(aData['amenities'].indexOf(id), 1);
+    if ((ischecked) && keyType === 'amenities-list') aData['amenities'].push(id);
+    else if ((!ischecked) && keyType === 'amenities-list') aData['amenities'].splice(aData['amenities'].indexOf(id), 1);
 
 	$('.places').empty();
     $.ajax({
       type: 'POST',
-      url: 'http://0.0.0.0:5001/api/v1/places_search/',
+      url: 'http://0.0.0.0:5002/api/v1/places_search/',
       dataType: 'json',
       contentType: 'application/json',
       data: JSON.stringify(aData),
@@ -70,7 +69,7 @@ $(document).ready(function () {
 
   $.ajax({
     type: 'GET',
-    url: 'http://0.0.0.0:5001/api/v1/status/',
+    url: 'http://0.0.0.0:5002/api/v1/status/',
     success: function (data) {
       $('#api_status').addClass('available');
     },
@@ -84,7 +83,7 @@ $(document).ready(function () {
 
   $.ajax({
     type: 'POST',
-    url: 'http://0.0.0.0:5001/api/v1/places_search/',
+    url: 'http://0.0.0.0:5002/api/v1/places_search/',
     dataType: 'json',
     contentType: 'application/json',
     data: JSON.stringify({}),
