@@ -49,7 +49,7 @@ $(document).ready(function () {
 	$('.places').empty();
     $.ajax({
       type: 'POST',
-      url: 'http://0.0.0.0:5002/api/v1/places_search/',
+      url: 'http://0.0.0.0:5001/api/v1/places_search/',
       dataType: 'json',
       contentType: 'application/json',
       data: JSON.stringify(aData),
@@ -69,7 +69,7 @@ $(document).ready(function () {
 
   $.ajax({
     type: 'GET',
-    url: 'http://0.0.0.0:5002/api/v1/status/',
+    url: 'http://0.0.0.0:5001/api/v1/status/',
     success: function (data) {
       $('#api_status').addClass('available');
     },
@@ -83,7 +83,7 @@ $(document).ready(function () {
 
   $.ajax({
     type: 'POST',
-    url: 'http://0.0.0.0:5002/api/v1/places_search/',
+    url: 'http://0.0.0.0:5001/api/v1/places_search/',
     dataType: 'json',
     contentType: 'application/json',
     data: JSON.stringify({}),
