@@ -80,6 +80,9 @@
 .container .places .user {
 	margin: 20px 0 5px 0;
 }
+.reviews-title, .amenities-title {
+	border-bottom: 1px solid #DDDDDD;
+}
 
 @media screen and (max-width: 600px) {
 
