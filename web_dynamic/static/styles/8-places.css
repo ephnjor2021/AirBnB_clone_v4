@@ -80,6 +80,22 @@
 .container .places .user {
 	margin: 20px 0 5px 0;
 }
+
+.container .places .show-button {
+    color: #ffffff;
+    font-size: 14px;
+    background: #FF5A5F;
+    height: 30px;
+    width: 20%;
+    border: none;
+    border-radius: 4px;
+    margin: 30px auto 30px auto;
+}
+
+.container .places .amenities li {
+    list-style: none;
+}
+
 .reviews-title, .amenities-title {
 	border-bottom: 1px solid #DDDDDD;
 }
