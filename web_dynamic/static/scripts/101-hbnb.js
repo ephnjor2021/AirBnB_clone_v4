@@ -88,7 +88,6 @@ $(document).ready(function () {
     contentType: 'application/json',
     data: JSON.stringify({}),
     success: function (data) {
-		console.log(data);
       for (let i = 0; i < data.length; ++i) {
         let html = '<article><div class="title"><h2>' + data[i].name + '</h2><div class="price_by_night">' + data[i].price_by_night + '</div></div>' +
 					'<div class="information"><div class="max_guest"><i class="fa fa-users fa-3x" aria-hidden="true"></i><br />' + data[i].max_guest + ' Guests</div><div class="number_rooms"><i class="fa fa-bed fa-3x" aria-hidden="true"></i><br />' + data[i].number_rooms + ' Bedrooms</div><div class="number_bathrooms"><i class="fa fa-bath fa-3x" aria-hidden="true"></i><br />' + data[i].number_bathrooms + ' Bathroom</div></div><div class="user"></div>' + 
@@ -146,7 +145,6 @@ $(document).ready(function () {
 						dataType:'json',
 						contentType: 'application/json',
 						success: function(data2) {
-							console.log(data2);
 							html += '<h3>From ' + data2.first_name + ' ' + data2.last_name;
 						},
 						error: function (jqXHR, textStatus, errorThrown) {
@@ -155,10 +153,12 @@ $(document).ready(function () {
 							console.log(errorThrown);
 						}
 					});
-					console.log(data[i]);
-					let date = data[i].created_at;
-						
-					html += ' the ' + date + ' </h3><p>' + data[i].text + '</p></li>';
+					let date = data[i].created_at.split('-');
+					let month = date[1];
+					let year = date[0];	
+					let day = date[2].split(' ')[0];
+					let transition = {'01': 'January', '02': 'February', '03': 'March', '04': 'April', '05':'May', '06':'June', '07':'July', '08':'August', '09':'September', '10':'October', '11':'November', '12':'December'}	
+					html += ' the ' + day + 'th ' + transition[month]+ ' ' + year + ' </h3><p>' + data[i].text + '</p></li>';
 				}
 				html += '</ul>';
 				$('#' + placeId).append(html);
