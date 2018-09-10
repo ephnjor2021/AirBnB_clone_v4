@@ -72,15 +72,15 @@
 	display: list-item;
 }
 
-.amenities h4 {
+.amenities h4, .locations h4 {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     height: 16px;
-    width: 250px;
+    width: 210px;
 }
 
-.amenities-list {
+.amenities-list, .states-list, .cities-list {
     margin-right: 10px;
 }
 
