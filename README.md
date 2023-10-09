@@ -208,17 +208,11 @@ create: create [ARG] [PARAM 1] [PARAM 2] ...
 ### Continuous Integration Tests
 
 Uses [Travis-CI](https://travis-ci.org/) to run all tests on all commits to the
-github repo
+GitHub repo
 
 ## Authors
 
-* MJ Johnson, [@mj31508](https://github.com/mj31508)
-* David John Coleman II, [davidjohncoleman.com](http://www.davidjohncoleman.com/) | [@djohncoleman](https://twitter.com/djohncoleman)
-* Kimberly Wong, [kjowong](https://github.com/kjowong) | [@kjowong](https://twitter.com/kjowong) | [kjowong@gmail.com](kjowong@gmail.com)
-* Carrie Ybay, [hicarrie](https://github.com/hicarrie) | [@hicarrie_](https://twitter.com/hicarrie_)
-* Jared Heck, [jarehec](https://github.com/jarehec) | [@jarehec](https://twitter.com/jarehec)
-* Nickolas Teixeira, [nickolasteixeira](https://github.com/nickolasteixeira) | [@NTTL_LTTN] (https://twitter.com/NTTL_LTTN)
-* Omar Contreras, [aucontraire](https://github.com/aucontraire) | [@_au_contraire] (https://twitter.com/_au_contraire)
+* Ephraim Gathoni, [@ephnjor2021](https://github.com/ephnjor2021)
 
 ## License
 
